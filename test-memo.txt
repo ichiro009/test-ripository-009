@@ -33,3 +33,5 @@ NG例）
 何かの部品のこと
 
 lex-flow … flex-directionとflex-wrapをまとめて指定 例 .container { flex-flow: row wrap; }
+
+
