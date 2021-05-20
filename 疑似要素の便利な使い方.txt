@@ -1,0 +1,149 @@
+https://www.youtube.com/watch?v=ltR00hSVZow
+このサイトを参考にしました。不明点が出たら再チェック！
+
+
+①テキスト系　:before :after 
+同じものを繰り返し編集する場合便利です
+
+例えば 疑似要素を使わないで表現すると
+
+HTML  のコード　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+<p>100<span>円</span></p>　　　　　　　　　
+<p>500<span>円</span></p>
+<p>1000<span>円</span></p>
+<p>10000<span>円</span></p>
+ 
+CSS のコード
+p{
+  font-size:15px
+}
+span{
+  font-size:10px;
+}
+
+　ＨＴＭＬがspan だらけですよね；
+同じ表現ですけど疑似要素を使うと
+ＨＴＭＬが　　
+<p>100</p>
+<p>500</p>
+<p>1000</p>
+<p>10000</p>
+
+ＣＳＳが
+p{
+  font-size:15px
+}
+p:after{
+  content:"円";
+  font-size:10px;
+}
+
+スッキリしましたね、この方が作業効率よさげです。
+
+
+データ属性について　先ほどの単位が全て違う場合便利です！！
+data-　〇〇　といった属性をＨＴＭＬで指定できる　
+
+ＨＴＭＬ
+<p data-unit="円">100</p>    pタグのデータ属性をunit にして中身が円
+<p data-unit="台">500</p>
+<p data-unit="冊">1000</p>
+<p data-unit="個">10000</p>
+
+ＣＳＳ
+p[data-unit]:after{
+  content:attr(data-unit);
+  font-size:10px;
+}
+補足説明
+attr() 指定したデータの値を取ってきてくれます。
+
+リスト系　ここからややこしくなります。
+
+li{
+  padding-left:30px;　　←ここで余白を空けないとくっつく
+  position:relative;　　←疑似要素のアブソリューと繋がる
+}
+ul{
+  list-style:none;
+}
+
+li:before{　
+  content:"";　　　　←以下のコンテンツを表示するのに必要
+  display:block;　　←下記の大きさを設定するために必要
+  width:20px;　　　　　←ここから三行でコンテンツの形を設定
+  height:5px;
+  background-color:#000;
+  position:absolute;　　本体のレラティブと連動 下記からコンテンツの位置情報
+  top:0.5em;　　　　←ここに注目　文字の高さの半分の位置から！！覚えよう！！
+  left:0;
+  
+}
+
+
+応用編アイコンをリストで使ってみよう！！！
+
+コードはこんな感じです
+
+ul{
+  list-style-type:none;
+}
+li{
+  position:relative;
+  padding-left:20px;
+
+}
+li:before{
+  content:"";
+  display:block;
+  width:13px;
+  height:13px;
+  background:url(test-img/icon-boss.png);　←背景色の所をimg に変更
+  background-repeat:no-repeat;　　←画像をリピートさせない
+  background-size:contain;　　　　←画像の幅をそろえる
+  position:absolute;　　　　　←この下から位置調整
+  top:50%;　　　　　　　←画像の上のラインが50%の位置に
+  transform:translateY(-50%);　←ずれた分上に移動
+　left:0;
+
+}
+さらにHTML側に任意のクラスを付けると
+.apple:before{
+
+  background:url(test-img/fire-icon.png);
+}
+このように　後からURLだけ変更すれば違う画像のアイコンも使えます！！
+上のCSSを利用してるので必ず後からCSSを書くのがポイント。！
+
+
+疑似要素にはhover の指定もできる！各順番に注意が必要
+
+　p:hover:before{}
+このように　ホバーが真ん中にきます
+で次に疑似要素がきます　この順番通にする必要がある。
+
+
+画像比率保持の場合　
+疑似要素は元の要素を親要素とみなしてる？っぽいのを利用した
+方法
+コードはこんな感じ
+.box{
+  max-width:500px;
+  background:skyblue;
+}
+
+.box:after{
+  content:"";
+  display:block;
+  width:100%;
+  padding-top:100%;
+}
+注目は
+疑似要素のこれ
+padding-top:100%;
+親要素の横幅を基準にその数値が高さになる！
+この値を変えることにより比率に応じた画像が作れます！！
+
+
+
+
