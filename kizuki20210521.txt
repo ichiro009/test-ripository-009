@@ -1,0 +1,29 @@
+initial そのプロパティの初期値を意味する
+
+clip-path で画像トリミング！！！　でもIE対応してない。
+
+参考サイト
+https://shu-sait.com/css-clip-path-tukaikata/
+
+ clip-path: inset(値 );　　四角のトリミングが出来る
+値は　一つで　全方位　　２つ　上下　左右　３つ　上　左右　下　　４つ　上　右　下　左
+
+
+clip-path: inset(5% 20% 15% 10% round 40px);　各丸を作れる
+上記の位置基準の値の　後に　round 値　をつけるだけ　値には丸めたい数値が入ります
+
+
+clip-path: circle();　円形に切り抜きが出来る！！
+
+clip-path: circle(40% at 50% 50%);　←の値説明　１つ目　どれだけ丸めるか
+　　　　　　　　　　　　　　　　　　　at 以降　円の位置を指定できる
+at 以降の位置指定は　top right bottom left でもおｋ
+
+
+
+clip-path: ellipse();　楕円形で切り抜きが出来ます。
+　
+ clip-path: ellipse(25% 40% at 50% 50%);　
+
+　ザックリ　at の手前　楕円の形情報
+　　　　　at の後ろ　楕円の位置情報
