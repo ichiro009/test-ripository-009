@@ -1,0 +1,48 @@
+body{
+  margin:0;
+}
+.container{
+display:flex;
+margin-top:200px;
+justify-content: center;
+  
+}
+
+[class*="box"] {
+  margin-bottom: 10px;
+  width: 100px;
+  height: 100px;
+  background: skyblue;
+}
+.box1{
+ 
+  transform:translate(-50%, -50%);
+  transition:all .7s ease;
+}
+.box2{
+  background: white;
+  position:absolute;
+  transition:all .7s ease;
+  z-index: 9;
+  color:black;
+}
+.box3{
+  background: lime;
+  position: absolute;
+  transform:translate(50%, 50%);
+  transition:all .7s ease;
+}
+.box4{
+  background:blue;
+  position: absolute;
+  transform:translate(-50%, 50%);
+  transition:all .7s ease;
+  z-index: 110;
+}
+.box5{
+  background: pink;
+  position: absolute;
+  transform:translate(50%, -50%);
+  transition:all .7s ease;
+  z-index:110;
+}
