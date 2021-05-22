@@ -1,0 +1,38 @@
+textareaのこのチョンチョンを消すcss
+
+textarea {
+  resize: none;
+}
+
+nav タグで大枠を囲んで　それぞれｕｌタグで囲めばいい。
+
+フッターにある時点で主要なナビゲーションとは言い難いので
+フッターでnav タグは使わない方が無難。
+div タグで対応がベターでしょう。
+
+さっくりコードを書いて纏めまする！！
+HTMLは
+ <dl class="container">
+    <dt>トマト</dt><dd>１個</dd>
+    <dt>りんご</dt><dd>３個</dd>
+    <dt>ぶどう</dt><dd>５個</dd>
+    <dt>ざくろ</dt><dd>８個</dd>
+  </dl>
+
+CSSは
+@charset "UTF-8";
+.container{
+  max-width:500px;　←レイアウトに応じて設定
+  display:flex;　　　←横並びにします
+  flex-wrap:wrap;　←これがないとはみ出す
+}
+dt{
+width:50%;　　　←ddタグと合わせて100％にしないと崩れる
+
+}
+dd{
+width:50%;　　　　←上述の通り
+margin:0;　　　←すごく大事CSSリセット使ってるなら不要
+}　　　　　　　　デフォ設定のマージンを消さないとレイアウトが崩れます大事！！
+　　　　　　　　　正確にはmargin-left :0;　になります。
+ここを再復習しましょう
