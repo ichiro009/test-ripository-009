@@ -1,0 +1,117 @@
+一つのサイトで理解できない場合
+別のサイトをみたほうが早く理解もしくは
+自分の求めている答えに出くわす可能性がある
+あくまで可能性の問題。
+一つのサイトに留まり続けても結局は同じ情報なので
+そこに執着し続けるのは時間の無駄かもしれない。
+
+https://www.youtube.com/watch?v=Dxpl3IKLWaQ
+参考サイト
+
+&　アンパサンドの使い方について　
+親のセレクターを参照する
+右側に置くこともできる例えば
+SCSSを
+.btn{
+  color:#fff;
+  background: #000;
+  header &{
+    color:red;
+  }
+}
+ならばCSSは
+.new .btn {
+  color: #fff;
+  background: #000;
+  padding: 10px;
+}
+header .new .btn {
+  color: green;
+}
+となります。
+
+！！！注意事項！！！
+また親セレクタがネスト化されてる場合、& で参照されるのは　親だ・け・で　なく！！
+その上の階層のセレクタも含めて参照されるので、注意が必要です！！！
+つまり& 参照されるのは親セレクタではなく
+元々の親セレクタ！！！！これを覚えよう
+
+
+
+変数を使って要素を一括管理しましょう！！
+
+$size: 200px; 
+$size という変数の中身が200px 使い方は
+
+$size: 200px;
+.box{
+  width: $size;
+  height: $size;
+}
+とすれば
+.box {
+  width: 200px;
+  height: 200px;
+}
+とCSSに変換されます
+
+これを基本に応用すると色々便利な使い方が可能！！
+
+
+ファイルを分割　分割ファイルのことを　パーシャル　とよぶ
+
+ファイル名の頭に_ アンダーバーを付ける
+例えば
+_header.scss _main.scss _footer.scss  等
+これをメインのファイルで読み込ませるには！！
+
+@use や　@forward を使う！！
+@use の場合メインで使ってるscss ファイルに
+@use "header"; これだけ
+_ .scss  のアンダーバーと　拡張子を省くだけでおｋ簡単
+
+これに対して@forward　を使う場合は
+@forward "_header";  のようにアンダーバーをつける後は
+@useと同じでよい
+
+５同じコードを複数個所で　利用する場合
+@extend を使って継承～　継承～
+
+書き方はざっくり
+@exted  継承させたいセレクター　
+例えば
+
+.btn{
+  display:inline-block;
+  padding: 20px 40px;
+  color:#fff;
+  background: #000;
+}
+という　スタイルを丸ごと使いたいときに
+
+.btn-blue{
+  @extend .btn;  ←.btn のスタイルをまるごと使います宣言
+  background: blue;
+}
+
+ちなみにこの@extend 君　@media (min-width:600px) のメディアクエリにも
+適応されます。
+
+CSS に書き出させれない要素の書き方
+%を頭文字に使う　プレースホルダーセレクターという
+例えば
+%common_size{
+   margin:40% 0;
+}
+
+のようにすればScss からCSS に書き出されないスタイルとなる
+これも
+@extend %common_size; とすれば継承して使える！！
+単体では使わないスタイルなら、これを使うといい感じに使えます。
+
+ただしこの@extend 使い処を間違えると大変な目に
+https://qiita.com/Shinji-Hashimoto/items/b465688fc8d7183a53ce
+このサイトを参考に
+
+
+６メディアクエリを簡単に書く
