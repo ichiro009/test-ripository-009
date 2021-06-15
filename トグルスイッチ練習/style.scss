@@ -1,0 +1,54 @@
+header{
+  text-align:center;
+}
+div{
+  margin: auto;
+}
+.toggle-switch{
+  position: relative;
+  width: 250px;
+  height: 120px;
+  margin:auto;
+}
+.toggle-input{
+  position: absolute;
+  left: 0;//親要素と同じ位置にするため
+  top: 0;//left0 top0 にしている
+  width: 100%;//親要素と同じ大きさに
+  height: 100%;//同上
+  z-index: 10; //ポインターを効かせるために手前に
+  opacity: 0;//見えなくするために他の方法でもおｋ
+  cursor: pointer;
+}
+.toggle-label{//スイッチの下地の背景
+  display: inline-block;//ラベルタグはｲﾝﾗｲﾝ要素だから
+  width: 250px;//親divの幅と同じにするのがミソ
+  height: 120px;//同上
+  background: #87cefa;
+  position: relative;
+  border-radius:58px;
+  transition:.5s;//アニメーションの時間
+  &:after{//疑似要素で中の丸いスイッチ作り
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width: 120px;//高さと同じにするのがミソ
+    height: 120px;
+    border-radius:100%;//完全な正丸は１００％である
+    background: #fff;//スイッチの色
+    box-shadow:0 2px 5px;//影を付け少しオシャレ
+    z-index: 2;
+    transition:.5s;
+
+  }
+}
+
+.toggle-input:checked  {//スタイルの当て方がポイント
+  +.toggle-label{// +は兄弟要素
+    background: #0000ff;
+    &:after{// これが便利な& の使い方ですね
+      left:130px;
+    }
+  }
+}
