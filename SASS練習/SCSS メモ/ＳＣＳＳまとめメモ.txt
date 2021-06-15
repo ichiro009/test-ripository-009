@@ -1,0 +1,84 @@
+{  https://www.youtube.com/watch?v=IiVSoc1oPis　　参考サイト
+パーシャルとは　
+　目的やパーツごとに分割されたファイルのこと！！
+　
+
+ミックスイン　使い方
+SCSS で
+@mixin border($color:#ff0000){　　　　
+  border:1px solid $color;
+}
+header{
+  @include border;
+}
+
+border　という名前のmixinを設定して
+@include　半角スペース　ミックインの名前　を入力して使用します。
+さらに($color:#ff0000)　とう変数も合わせて設定してます。
+これをＣＳＳでみると
+header {
+  border: 1px solid #ff0000;
+}
+が出力されます。
+
+ブレークポイントを@mixin  で管理してみよう
+以下のようなScss　なら
+@mixin breakpoint($point){
+  @if $point == tablet{
+    @media (max-width:768px){
+      @content;
+    }
+  } 
+  
+}
+
+header{
+  width: 900px;
+  @include breakpoint(tablet){
+    width: 100%;
+  }
+}
+
+CSSは
+header {
+  width: 900px;
+}
+@media (max-width: 768px) {
+  header {
+    width: 100%;
+  }
+}
+となります。
+
+解説！！　@mixin breakpoint($point)　
+@mixin　の名前をbreakpoint　にします　引数を($point)　に
+
+ @if $point == tablet{
+もし　この引数() 内に　tablet　という値が入っていれば
+@media (max-width:768px のメディアクエリの場合
+
+    @content;　コンテンツを実行します。
+
+ちなみに条件が分岐する場合は
+scss を
+@mixin breakpoint($point){
+  @if $point == tablet{
+    @media (max-width:768px){
+      @content;
+    }
+  }
+  @else if $point == pc{
+    @media (max-width:1268px){
+      @content;
+    }
+  } 
+  
+}
+
+header{
+  width: 900px;
+  @include breakpoint(pc){
+    max-width: 100%;
+  }
+}
+このように書くこともできます！！

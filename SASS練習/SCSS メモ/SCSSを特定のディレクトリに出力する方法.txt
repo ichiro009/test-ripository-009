@@ -1,0 +1,16 @@
+ＶSコードの拡張機能から
+Live SAss　Compaie　を開く
+settign.json で編集
+
+{
+"liveSassCompile.settings.formats":[
+{
+"format": "expanded",
+"extensionName": ".css",
+"savePath": "/css"
+}
+]
+}
+
+これを貼り付けると　最後の"savePath": "/css"　ここの
+スラッシュの下のフォルダ名の所にCSSファイルが吐き出されます。
