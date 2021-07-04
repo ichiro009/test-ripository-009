@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOMについて理解しよう</title>
+</head>
+<body>
+  <h1 id="js-target">見出しです</h1>
+  <p>集中します集中します集中します集中します集中します</p>
+  <p>集中します集中します集中します集中します集中します</p>
+  <p>集中します集中します集中します集中します集中します</p>
+  <script src="js/main-01.js"></script>
+
+
+  <!-- #04 要素の取得方法を理解しよう -->
+  <ul>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+  </ul>
+<!-- この場合のDOMのＮodeには空白や改行もＮodeに含まれます。 -->
+<!-- ul.childNodesとすると空白・改行含む子Ｎodeを取得
+-->
+<!-- ul.childrenとすれば空白・改行除く子要素のみ取得 -->
+
+<!-- 最初の子ul.firstChild 最後の子ul.lastChild  注：Cが大文字 
+空白・改行含む-->
+<!-- ul.firstElementChild,ul.lastElementChild,空白・改行除く要素のみ -->
+
+<!-- 親Nodeを取得したいli.parentNode  空白・改行含む-->
+
+<!-- li.previousSibling 一つ前の兄弟Node 空白・改行含む-->
+<!-- li.nextSibling一つ後の兄弟Node -空白・改行含む->
+
+  <!-- また、ここでも要素 Node だけ取得したい場合は、 previousElementSibling 、 nextElementSibling を使えば OK です。 -->
+
+
+</body>
+</html>

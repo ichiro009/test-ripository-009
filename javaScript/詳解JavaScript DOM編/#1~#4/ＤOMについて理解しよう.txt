@@ -1,0 +1,47 @@
+詳解JavaScript DOM編
+ＤＯＭについて理解しよう
+
+
+DOMとは？
+
+ブラウザが HTML を読み込むと内部的に Document Object Model もしくは DOM と呼ばれるデータ構造が作られる。
+そのデータに応じてページが描画がされる、という仕組みになっている。
+
+
+この DOM を JavaScript で操作することで様々な機能を作ることができる。
+
+ JavaScript が操作しているのは、あくまで DOM であって HTML のほうではない
+HTMLが書き換えられるわけではない。
+
+
+ＤＯＭではＨＴＭＬがツリー上で表現されます
+
+大元にdocumentがきて　doctype
+　その下にＨＴＭＬの構造通りのデータとなる。
+
+ここのそれぞれのデータを　
+
+Nodeツリー　もしくは　DOMツリーと呼びます。
+
+文章内の改行・空白もNode となります。
+が全ての改行・空白がNodeになるわけではなく
+先頭と末尾例えば head開始タグ手前
+body閉じタグの後は　Nodeにはならない。
+
+
+Nodeの種類について
+
+document と doctype は少し特殊
+
+それ以外のHTMLの要素を表すNodeを
+要素Node  Element Node
+
+Text・空白・改行を　Text Node と呼ぶ
+
+
+親Node 子Node はＨＴＭＬと同じような捉え方で
+兄弟はsibling Node と呼ぶ
+
+シブリング（sibling）とは、「きょうだい（兄弟姉妹）」のこと。 同じ親から生まれた子供同士の交配です。
+
+

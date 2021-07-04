@@ -1,0 +1,118 @@
+id に対してCSSを適用する場合は # id名とする
+
+classとidの違いは、「使用回数」にあります。 
+classは1ページ中に何度でも呼び出すことができますが
+idは1ページ中に1度だけしか使うことができません。
+
+赤っぽい色　#ef454a
+
+上下に余白を作り画面中央に配置するには→margin:30px auto; 上下30px 左右自動で中央に配置！
+形を丸くする　border-radius:50%;
+
+初期だと左上の数字を要素のンターに置く方法
+→　text-align:center;
+ 　line-height:px;   ←この値はheight と同じにする
+　
+　font-weight:bold ; 太めのフォントに
+　
+　'use strict'; エラーチェックする
+
+クリックしたら　hit と表示されるコード　
+　変数や定数の値を限定するには　→{} で囲む！
+ const btn = document.getElementById('btn');
+  btn.addEventListener('click', ()=> {
+    btn.textContent = 'hit'
+  });
+
+getElementById('btn')　この部分の btn はHTML　のid 設定してるbtn
+に紐づけしてると考える
+
+ボタンにホバーしたらその要素が薄めになるCSS
+　#ID名　:hover{
+      opacity:0.9;
+     }
+
+アクティブ疑似クラスを使うと要素が
+クリックした場合のスタイルを指定できる
+　box-shadow: 左右値　　上下値  ; 　　正の値が　右　下　　負の値が　左　上　
+ 
+　box-shadow: 左右値　　上下値  ぼかす値　色値;
+
+ 元のmarginが３０ｐｘ　少し大きくしたら　ボタンが下にずれるようにみえる　３５ｐｘ
+
+ user-select:none; 　テキスト全体をクリックしてる表示をけす
+
+Math.random() ０以上１未満　　　少数含む
+Math.random()*3  ０以上３未満　　少数含む
+Math.floor(Math.random()*3)   0以上３未満　　少数含まない
+
+０～ｎまでの数なら
+Math.floor(Math.random()*(n+1))
+
+min ~ max までの数なら
+min +Math.floor(Math.random()*(max +1-min))
+
+swithc(n){
+  case 0:
+  btn.textContent = 'ﾎｹﾞ';
+  break; 
+}
+数字を文字に置き換える　何かのコードを何かに置き換える
+n の値が　0 ならテキストを　ホゲとする
+
+配列を使ってみよう
+例えば
+
+const results =['大吉 ','中吉','大凶']　　results という配列できあがり　
+　　大吉[0] 中吉[1]  大凶[2]
+　results[0] なら大凶
+
+　length →配列の要素数が分かる　　要素が増えた場合数値をいちいち変更するのは迂遠だから
+
+ＩＤ名.textContent = 配列名[Math.floor(Math.random()*配列名.lenght];
+
+Math.random() が少数を含む　０以上１未満の数を生成する仕組みを利用
+して　5%の確率で大吉がでる処理
+
+const n =Math.random();
+   if(n < 0.05){
+   btn.textContent =’大吉';
+}
+
+スペル間違い　textContent　が　texContent　　になってた　text　の最後のt
+打ち忘れ注意
+
+おみくじのjava script のコード
+
+'use strict'
+
+{
+  const btn = document.getElementById('btn');
+  btn.addEventListener('click', ()=> {
+    const n =Math.random();
+    if(n < 0.05){
+      btn.textContent ='大吉';
+       }else if (n < 0.2){
+        btn.textContent ='中吉';
+       }else{
+        btn.textContent ='凶';
+        
+        
+       }
+    
+  });
+}
+
+ポイントは　　if(n < 0.05){
+      btn.textContent ='大吉';
+       }else if (n < 0.2){
+        btn.textContent ='中吉';
+       }else{
+        btn.textContent ='凶';
+        }
+このif文　　　最初の大吉が5%
+        次の中吉は20%-5% で15%
+     　で　100-15=85% が凶　となる
+ Math.random()　 で０以上１未満の数値をランダムで出すのとを組み合わせたもの
+ これは色々応用が効きそう！！！　おそらく    
+       

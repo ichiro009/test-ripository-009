@@ -1,0 +1,15 @@
+@charset 'utf-8';
+body{
+  height: 300vh;
+  margin:0;
+  background: linear-gradient(rgb(220, 247, 220),green);
+}
+ul{
+  list-style:none;
+}
+.ttl{
+   padding:20px ;
+  font-family: Arial, Helvetica, sans-serif;
+  color:rgb(12, 131, 8);
+  text-shadow:1px 1px 3px;
+}

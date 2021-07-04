@@ -1,0 +1,245 @@
+width:100px;
+height:100px; これらはHTMLのimgタグには設定できるが
+　　　　　　　直接タグに領域を設定する時はCSSを用いる
+
+cursor:pointer; →CSSプロパティ　マウスが領域内に入ると手の形のポインターに変化する
+
+<script></script>
+この中でジャバスクリプトのプログラムを読み込む。
+一般的にはbody終了タグの直前に書くのがよいとされる。
+headタグ内にあるとHPの表示が遅くなって他のHPにユーザーが
+移動する可能性があるのでSEO対策的に理にかなってる。
+
+
+'use strict'; →スクリプトタグの開始タグの次に記述　
+　　　　　　ブラウザがエラーをチェックしてくれる、最後にセミコロンを忘れずに
+
+ジャバスクリプトから要素を指定する場合 id=""とidを指定する.
+div要素にjavaScriptを関連付けて後で実行したいとき
+<div id=""></div>
+
+document.getElementById('') idを取得するコマンド（）内にIDが入る
+って説明してるけどIDはHTMLとの繋がりパスです。意味は
+HTMLのIDに対して
+
+document→文章全体の事ってえ？！　HTMLの？？
+説明不十分だよね？？分からないよ？？何の文章全体なの
+
+document.getElementById('')文章全体から指定したidを取得
+そもそも何の文章か分かりませんが・・
+
+add→追加
+EventListener→　何かが起きたら何らかの処理をする仕組みとの事
+　　　　　　　　　ざっくり説明すぎやろ・・
+
+addEventListener →上記の仕組みを追加します。
+
+.addEventListener('click',()=>{}
+クリックしたら｛｝内の処理をする、
+ちなみにｸﾘｯｸの所をダブルクリック　dblclick とするとダブルクリック
+しないと処理が実行しない
+
+例えば、ｸﾘｯｸしたら色をピンクに変えるコード
+const target = document.getElementById('target');
+   target.addEventListener('click',() =>{
+   target.style.background ='pink';
+   });
+
+コードの打ち間違いの対処方法について、いきなり違う説明はじめるの？？ここで？？
+クロムのデベロッパーツールを使いますF１２
+console にエラーコードが出るので読み解いてエラーを修正する
+特にエラーの行数が参考になります。英語弱者は、悲鳴確実。
+
+
+
+ｼﾞｬﾊﾞｽｸにCSSを実装させる方法その１  コードは以下
+<body>
+<div class="box" id="target">
+
+</div>
+<script>
+  'use strict';
+   const target = document.getElementById('target');
+   target.addEventListener('click',() =>{
+   target.style.background ='#ff0011';
+   });
+ </script>
+</body>
+この場合クリックすると　divタグのid="target"の所の
+backgroundのカラーが#ff0011　この１６進数の色になる。
+
+
+
+
+ｼﾞｬﾊﾞｽｸにCSSを実装させる方法その２  コードは以下
+<head>
+<style>
+       .circle{
+  background:pink;
+  border-radius:50%;
+} 
+</style>
+</head>
+<body>
+<div class="box" id="target"></div>
+<script>
+ 'use strict';
+
+document.getElementById('target').addEventListener('click',()=>{
+document.getElementById('target').classList.add('circle');
+ 
+ });
+</body>
+とすると　クリックした後CSSのcircleのスタイルに変化する
+.classList.add('クラス名');　となります。
+               
+
+backgroundは,backgroundcolor の事あれ？color って略せるの？
+
+=> をアロー関数と呼ぶ、他にも書き方がある　
+　　関数に関する前提知識が無いと理解は難しい。
+
+　　　　　
+CSSのアニメーションについて
+transition プロパティを使ってスタイルが変化したときに
+かかる時間を設定できる。
+transition:0.8s; なら変化に０．８秒
+
+回転の変化は、transform :rotate(360deg); を使う
+
+
+もう一度クリックするとサークルが元に戻る命令
+document.getElementById('target').classList.add('circle');
+ 　　を
+document.getElementById('target').classList.toggle('circle');
+   にする
+まぁ　add の部分を　toggle にしただけなんですけど
+toggle('circle') →　サークルクラスが 無かったら付ける
+　　　　　　　　　　　付いてたら外す
+
+長い命令文は、定数を使ってスッキリ！！
+　const  定数　=   長い命令文　;
+今回は長ったらしい　ドキュメント云々を定数を使ってスッキリ
+コードは、こうなります。
+const target = document.getElementById('target');
+
+document.getElementById('target')　の部分がこれからは
+target　　で代替できます。
+
+
+ボディタグ内の要素を縦並びから横並びにするCSSフレックスbox
+floatと、何がどう違うのか・・後で調べよう。
+body{
+  display:flex;
+  flex-wrap:wrap;　　←これをflexボックスに加えると要素を折り返して表示する
+}
+
+左右に余白を付ける時
+margin-right:10px;
+margin-left:10px;
+もしくは
+ margin :0 10px 10px 0;  
+
+前回書いた類似性のあるコードを効率よく実装する方法について
+
+まずはジャバスクリプトのコードでhtmlのdiv実装する方法
+ document.createElement('div');    
+
+ここも長いので定数しましょうって
+ const div =  document.createElement('div');
+
+
+
+div.classList.add('box');
+この状態は単にdivクラスにbox スタイルを適用できます。
+しかしながら、まだ
+HTMLには、反映されません　なので
+document.body.appendChild(div);
+というコードを入力して初めてHTMLのbody要素の子要素としてdiv
+を反映させる事ができます。
+
+#09 JavaScriptでdivを生成してみようの
+コードはこうなります。
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body{
+      display:flex;
+      flex-wrap:wrap;
+    }
+    .box{
+      width:100px;
+      height:100px;
+      background:skyblue;
+      cursor:pointer;
+      margin :0 8px 8px 0;
+    }
+    .circle{
+background:pink;
+border-radius:50%;
+transition: 0.5s;
+transform :rotate(360deg);
+} 
+</style>
+  <title>Document</title>
+</head>
+<body>
+  
+  </div>
+ <script>
+   'use strict';
+   const div =  document.createElement('div');
+   div.classList.add('box');
+   document.body.appendChild(div);
+   div.addEventListener('click', ()=> {
+     div.classList.toggle('circle');
+   })
+ </script>
+</body>
+</html>
+
+
+繰り返し処理for　　　
+
+for(let i = 0; i<10; i++){
+} i がカウンター(計測器）のように動作していると考える
+　i=0   iが0 の状態からはじまる
+　i<10  iが１０より小さい間
+　i++ 　iを　１ずつ増やしながら
+　０も含めてiが９になるまで合計１０回
+｛｝の中の処理を行う。
+
+条件を変更すると違った処理も可能です。
+同じ処理を増やしたい時に重宝します。
+
+カウンタの数値iを記載する方法
+document.createElement('div') はdivとして
+div.textContent= i;
+
+テキストの文字を中央に配置するCSS
+　text-align:center;
+  line-height:100px;
+
+簡単な？応用でゲーム作り～ 
+
+
+Math.random() →０以上１未満のランダムな値を生成
+Math.random()* num  →０以上numの数未満のランダムな値を生成
+Math.floor（）　→小数点切り捨て
+
+const winner =Math.floor(Math.random()*num);
+結果として　0～（num-1）  のランダムな数値がwinnerに入ってくる
+　例えば　numが５なら　０～４のランダムな数値がwinnerに入る
+
+　if(i=== winner){  当たりの処理
+
+ }else {
+  外れの処理
+}
+
+
+
+
+
