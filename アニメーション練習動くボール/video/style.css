@@ -1,0 +1,9 @@
+.box, .p-header__nav {
+  margin: 89px;
+  padding: 10px;
+  background: skyblue;
+}
+.box p, .p-header__nav p {
+  font-size: 2rem;
+}
+/*# sourceMappingURL=style.css.map */

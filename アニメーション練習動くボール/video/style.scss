@@ -1,0 +1,11 @@
+.box{
+  margin: 89px;
+  padding: 10px;
+  background: skyblue;
+  p{
+    font-size:2rem;
+  }
+}
+.p-header__nav{
+  @extend .box;
+}
