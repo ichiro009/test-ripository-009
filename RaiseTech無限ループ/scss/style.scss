@@ -1,0 +1,67 @@
+@charset "utf-8";
+body {
+  padding-top: 10px;
+  height: 100vh;
+  background: linear-gradient(rgb(32, 82, 32), lime);
+  font-family: "M PLUS 1p", sans-serif;
+}
+h1,
+h2,
+h3 {
+  font-family: "Roboto", sans-serif;
+}
+
+$i: 30;
+
+li {
+  margin: $i + vw;
+}
+.wrap {
+  perspective: 510px;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 90%;
+  
+}
+.p-bg-container {
+  filter: grayscale(90%);
+  border-radius: 40px 30px;
+  background: url(./imges/hero-bg-fg.png), url(./imges/hero-bg-middle.png),
+    url(./imges/hero-bg-fixed.png);
+  background-size: contain;
+  background-position: center center;
+  width: 100%;
+  // transform:skew(3deg,3deg);
+  aspect-ratio: 5/2;
+  animation: loop 10.5s infinite linear alternate;
+}
+@keyframes loop {
+  15% {
+    transform:skewX(30deg);
+  }
+  30% {
+    transform:skewX(-30deg);
+  }
+  45% {
+    transform:skewX(50deg) ;
+  }
+  60% {
+    transform:skewY(-150deg) ;
+  }
+  77% {
+    transform:skewY(-50deg) ;
+  }
+ 
+  100% {
+    transform:skewX(-50deg);
+    background-position: -1199.69*2px center;
+  }
+}
+.c-title {
+  letter-spacing: 0.3rem;
+  margin-top: 2em;
+  font-size: 2em;
+  text-shadow: 0px -4px 5px rgb(143, 135, 135);
+  text-align: center;
+  color: rgb(212, 212, 219);
+}
